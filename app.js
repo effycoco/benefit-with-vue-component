@@ -1,6 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      isDetailsShowed: false,
       friends: [
         {
           id: "manuel",
@@ -17,32 +18,10 @@ const app = Vue.createApp({
       ],
     };
   },
-});
-
-app.component("friend-contact", {
-  template: `
-     <li >
-        <h2>{{friendInfo.name}}</h2>
-        <button @click="toggleDetails">{{isDetailsShowed?'Hide': 'Show'}} Details</button>
-        <ul v-if="isDetailsShowed">
-          <li><strong>Phone:</strong> {{friendInfo.phone}}</li>
-          <li><strong>Email:</strong> {{friendInfo.email}}</li>
-        </ul>
-      </li>
-    `,
-  props: {
-    friendInfo: Object,
-  },
-  data() {
-    return {
-      isDetailsShowed: false,
-    };
-  },
   methods: {
     toggleDetails() {
       this.isDetailsShowed = !this.isDetailsShowed;
     },
   },
 });
-
 app.mount("#app");
