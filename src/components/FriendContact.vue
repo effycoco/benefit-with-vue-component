@@ -2,9 +2,9 @@
   <li>
     <h2>{{ friendInfo.name }}</h2>
     <button @click="toggleDetails">
-      {{ isDetailsShowed ? "Hide" : "Show" }} Details
+      {{ isDetailsShown ? "Hide" : "Show" }} Details
     </button>
-    <ul v-if="isDetailsShowed">
+    <ul v-if="isDetailsShown">
       <li><strong>Phone:</strong> {{ friendInfo.phone }}</li>
       <li><strong>Email:</strong> {{ friendInfo.email }}</li>
     </ul>
@@ -17,12 +17,12 @@ export default {
   },
   data() {
     return {
-      isDetailsShowed: false,
+      isDetailsShown: false,
     };
   },
   methods: {
     toggleDetails() {
-      this.isDetailsShowed = !this.isDetailsShowed;
+      this.isDetailsShown = !this.isDetailsShown;
     },
   },
 };
